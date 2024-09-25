@@ -8,7 +8,7 @@
     tools:context=".fragments.add.AddFragment">
 
     <EditText
-        android:id="@+id/etPersonalName"
+        android:id="@+id/etTitle"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@android:color/transparent"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPersonalName" />
+        app:layout_constraintTop_toBottomOf="@id/etTitle" />
 
     <EditText
         android:id="@+id/etDescription"
