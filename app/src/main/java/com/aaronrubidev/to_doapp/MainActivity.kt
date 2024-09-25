@@ -1,5 +1,6 @@
 package com.aaronrubidev.to_doapp
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
