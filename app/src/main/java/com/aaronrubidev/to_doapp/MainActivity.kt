@@ -1,15 +1,9 @@
 package com.aaronrubidev.to_doapp
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.aaronrubidev.to_doapp.databinding.ActivityMainBinding
 
