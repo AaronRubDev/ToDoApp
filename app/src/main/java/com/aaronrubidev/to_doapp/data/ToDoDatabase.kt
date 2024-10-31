@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.aaronrubidev.to_doapp.data.models.ToDoData
 
-@Database(entities = [ToDoData::class], version = 1, exportSchema = false)
+@Database(entities = [ToDoData::class], version = 2, exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class ToDoDatabase : RoomDatabase() {
 
