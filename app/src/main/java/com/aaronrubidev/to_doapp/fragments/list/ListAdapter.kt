@@ -15,6 +15,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ItemViewHolder>() {
 
     private var dataList = emptyList<ToDoData>()
 
+
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_text)
         val description: TextView = view.findViewById(R.id.description_text)
