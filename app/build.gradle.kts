@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
     id("com.google.devtools.ksp")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -52,8 +54,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Navigation component
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.1")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.8.1")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
