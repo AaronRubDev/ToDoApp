@@ -1,4 +1,4 @@
-package com.aaronrubidev.to_doapp.fragments.list
+package com.aaronrubidev.to_doapp.fragments.list.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aaronrubidev.to_doapp.R
 import com.aaronrubidev.to_doapp.data.models.Priority
 import com.aaronrubidev.to_doapp.data.models.ToDoData
+import com.aaronrubidev.to_doapp.fragments.list.ListFragmentDirections
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ItemViewHolder>() {
 
-    private var dataList = emptyList<ToDoData>()
-
+    var dataList = emptyList<ToDoData>()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_text)
