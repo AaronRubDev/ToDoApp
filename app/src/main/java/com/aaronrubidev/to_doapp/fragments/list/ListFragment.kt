@@ -27,6 +27,8 @@ import com.aaronrubidev.to_doapp.databinding.FragmentListBinding
 import com.aaronrubidev.to_doapp.fragments.SharedViewModel
 import com.aaronrubidev.to_doapp.fragments.list.adapter.ListAdapter
 import com.google.android.material.snackbar.Snackbar
+import jp.wasabeef.recyclerview.animators.LandingAnimator
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
@@ -67,6 +69,9 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView.itemAnimator = LandingAnimator().apply {
+            addDuration = 300
+        }
 
         // Swipe to Delete
         swipeToDelete(recyclerView)
