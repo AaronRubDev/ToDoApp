@@ -28,7 +28,6 @@ import com.aaronrubidev.to_doapp.fragments.SharedViewModel
 import com.aaronrubidev.to_doapp.fragments.list.adapter.ListAdapter
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.LandingAnimator
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
@@ -125,11 +124,26 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.list_fragment_menu, menu)
+
+                val search = menu.findItem(R.id.menu_search)
+                val searchView = search.actionView as? SearchView
+                searchView?.isSubmitButtonEnabled = true
+                searchView?.setOnQueryTextListener(this@ListFragment)
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                if (menuItem.itemId == R.id.menu_delete_all) {
-                    confirmRemoval()
+                when (menuItem.itemId) {
+                    R.id.menu_delete_all -> confirmRemoval()
+                    R.id.menu_priority_high ->
+                        mToDoViewModel.sortByHighPriority.observe(
+                            requireActivity(),
+                            Observer { adapter.setData(it) }
+                        )
+                    R.id.menu_priority_low ->
+                        mToDoViewModel.sortByLowPriority.observe(
+                            requireActivity(),
+                            Observer { adapter.setData(it) }
+                        )
                 }
                 return false
             }
@@ -153,11 +167,27 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        TODO("Not yet implemented")
+        if (query != null) {
+            searchTroughDatabase(query)
+        }
+        return true
     }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
-        TODO("Not yet implemented")
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) {
+            searchTroughDatabase(query)
+        }
+        return true
+    }
+
+    private fun searchTroughDatabase(query: String) {
+        var searchQuery = "%$query%"
+
+        mToDoViewModel.searchDatabase(searchQuery).observe(this, Observer { list ->
+            list?.let {
+                adapter.setData(it)
+            }
+        })
     }
 
 }
