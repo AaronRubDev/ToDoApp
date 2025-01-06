@@ -4,6 +4,8 @@
 
 <br>
 
+To Do App is designed to help users efficiently manage their tasks and notes. With this app, users can create, edit, update, and delete notes while organizing them by priority levels: high, medium, and low. This prioritization ensures that users can focus on what matters most and stay productive.
+
 ## What would you found in this project?
 
   - Safe args
